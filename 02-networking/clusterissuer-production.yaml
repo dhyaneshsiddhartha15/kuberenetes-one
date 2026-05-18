@@ -1,0 +1,26 @@
+# Let's Encrypt Production ClusterIssuer
+# Use this for production - certificates are trusted by all browsers
+# IMPORTANT: Replace EMAIL_PLACEHOLDER with your email address
+# NOTE: Rate limits apply! Don't use this for testing.
+
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-production
+spec:
+  acme:
+    # Let's Encrypt production server
+    server: https://acme-v02.api.letsencrypt.org/directory
+
+    # Your email address - will receive expiration notices
+    email: EMAIL_PLACEHOLDER
+
+    # Store certificates in a secret
+    privateKeySecretRef:
+      name: letsencrypt-production
+
+    # Enable HTTP-01 challenge (most common for ingress)
+    solvers:
+    - http01:
+        ingress:
+          class: nginx

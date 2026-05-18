@@ -1,0 +1,25 @@
+# Let's Encrypt Staging ClusterIssuer
+# Use this for testing - no rate limits, certificates are trusted for testing
+# IMPORTANT: Replace EMAIL_PLACEHOLDER with your email address
+
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-staging
+spec:
+  acme:
+    # Let's Encrypt staging server
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+
+    # Your email address
+    email: EMAIL_PLACEHOLDER
+
+    # Store certificates in a secret
+    privateKeySecretRef:
+      name: letsencrypt-staging
+
+    # Enable HTTP-01 challenge (most common for ingress)
+    solvers:
+    - http01:
+        ingress:
+          class: nginx

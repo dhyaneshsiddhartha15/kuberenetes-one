@@ -1,0 +1,25 @@
+# This custom resource configures Calico for dual-stack IPv4 + IPv6
+# See https://docs.projectcalico.org/reference/installation/api#operator.tigera.io/v1.Installation
+
+apiVersion: operator.tigera.io/v1
+kind: Installation
+metadata:
+  name: default
+spec:
+  # Configure Calico networking
+  calicoNetwork:
+    # IP pools for pod IPs
+    ipPools:
+    # IPv4 pool - matches kubeadm init pod-network-cidr
+    - blockSize: 26
+      cidr: 192.168.0.0/16
+      encapsulation: VXLANCrossSubnet
+      natOutgoing: Enabled
+      nodeSelector: all()
+
+    # IPv6 pool - matches kubeadm init IPv6 CIDR
+    - blockSize: 122
+      cidr: fd00::/48
+      encapsulation: VXLANCrossSubnet
+      natOutgoing: Enabled
+      nodeSelector: all()
