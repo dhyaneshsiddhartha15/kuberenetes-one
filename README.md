@@ -1,6 +1,6 @@
 # Kubernetes from Zero
 
-> 💬 **Dhyanesh's note:** This repo captures my real journey learning Kubernetes from scratch in 2026. Every script here has been tested on actual AWS cloud instances (Ubuntu 24.04 LTS) — not managed services, not kind/minikube shortcuts. I made every mistake in the book so you don't have to.
+> 💬* This repo captures my real journey learning Kubernetes from scratch in 2026. Every script here has been tested on actual AWS cloud instances (Ubuntu 24.04 LTS) — not managed services, not kind/minikube shortcuts. I made every mistake in the book so you don't have to.
 
 ---
 
@@ -117,18 +117,6 @@ bash scripts/health-check.sh
 | **03. Workloads** | Deploy apps with YAML and Helm | [03-workloads/README.md](03-workloads/README.md) |
 | **04. Security** | RBAC, NetworkPolicies, Secrets | [04-security/README.md](04-security/README.md) |
 | **05. Monitoring** | Prometheus + Grafana | [05-monitoring/README.md](05-monitoring/README.md) |
-
----
-
-## Dhyanesh's Journey
-
-I started learning Kubernetes in early 2026 because I was tired of clicking through AWS consoles and paying $100+/month for managed services that I didn't fully understand. I wanted to know what happens under the hood — what kubeadm actually does, how CNI plugins make pods talk to each other, why my LoadBalancer services stayed stuck in `<pending>` state.
-
-I built this cluster using AWS EC2 instances (t3.medium and t3.large) to get real cloud experience. I messed up security group settings (twice!), fought with VPC network conflicts, spent hours debugging why CoreDNS pods wouldn't start (turns out I had the wrong CIDR), and accidentally terminated my control plane instance more times than I care to admit.
-
-But every mistake taught me something. Now I can spin up a production-ready cluster in under 30 minutes, deploy apps with proper TLS, autoscaling, monitoring — all on AWS cloud infrastructure. This repo is that journey, distilled into scripts and documentation that actually work.
-
-If you're following along: take your time, read the error messages, and don't be afraid to break things. That's how you learn.
 
 ---
 
