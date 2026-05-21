@@ -1,6 +1,6 @@
 # 02-Networking: CNI, LoadBalancer, and Ingress
 
-> 💬 **Dhyanesh's note:** Networking was the most confusing part for me. Why were my LoadBalancer services stuck in `<pending>`? Why couldn't pods talk to each other? This section clears up all that confusion.
+> ** Networking was the most confusing part for me. Why were my LoadBalancer services stuck in `<pending>`? Why couldn't pods talk to each other? This section clears up all that confusion.
 
 ---
 
