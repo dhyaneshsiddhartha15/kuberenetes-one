@@ -38,11 +38,6 @@
 kubernetes-from-zero/
 ├── 01-setup/              # Cluster initialization with kubeadm
 ├── 02-networking/         # CNI, MetalLB, ingress-nginx, cert-manager
-├── 03-workloads/          # Sample app (frontend + backend) + Helm chart
-├── 04-security/           # RBAC, NetworkPolicies, Pod Security, Secrets
-├── 05-monitoring/         # Prometheus + Grafana stack
-├── scripts/               # Automation scripts (run these!)
-└── README.md              # This file
 ```
 
 ---
@@ -114,9 +109,7 @@ bash scripts/health-check.sh
 |---------|-------------|------|
 | **01. Setup** | Initialize cluster with kubeadm | [01-setup/README.md](01-setup/README.md) |
 | **02. Networking** | CNI, MetalLB, Ingress, TLS | [02-networking/README.md](02-networking/README.md) |
-| **03. Workloads** | Deploy apps with YAML and Helm | [03-workloads/README.md](03-workloads/README.md) |
-| **04. Security** | RBAC, NetworkPolicies, Secrets | [04-security/README.md](04-security/README.md) |
-| **05. Monitoring** | Prometheus + Grafana | [05-monitoring/README.md](05-monitoring/README.md) |
+
 
 ---
 
