@@ -1,6 +1,6 @@
 # Kubernetes from Zero
 
-> 💬* This repo captures my real journey learning Kubernetes from scratch in 2026. Every script here has been tested on actual AWS cloud instances (Ubuntu 24.04 LTS) — not managed services, not kind/minikube shortcuts. I made every mistake in the book so you don't have to.
+> 💬* This repo captures my real journey learning Kubernetes from scratch. Every script here has been tested on actual AWS cloud instances (Ubuntu 24.04 LTS) — not managed services, not kind/minikube shortcuts. I made every mistake in the book so you don't have to.
 
 ---
 
