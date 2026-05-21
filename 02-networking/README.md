@@ -8,7 +8,6 @@
 
 **CNI** = Container Network Interface. It's the plugin that handles pod-to-pod networking.
 
-**Analogy:** Think of the CNI as the "network switch" for your cluster. Without it, pods are like computers with network cards but no cables plugged in — they can't talk to each other.
 
 **Why Calico?**
 - Mature, production-grade, widely used
@@ -169,10 +168,9 @@ After each script, you can verify:
 
 Once networking is set up:
 
-1. **Deploy your app:** Go to `../03-workloads/` to deploy the sample application
-2. **Configure TLS:** Edit `../03-workloads/ingress.yaml` with your domain
-3. **Set up monitoring:** Go to `../05-monitoring/` for Prometheus + Grafana
-
+1. **Deploy your app:** 
+2. **Configure TLS:** in
+3. **Set up monitoring:** 
 ---
 
 **Happy K8sing! 🚀** — Dhyanesh Siddhartha
