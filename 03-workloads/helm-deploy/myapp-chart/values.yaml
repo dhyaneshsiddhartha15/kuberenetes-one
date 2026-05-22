@@ -1,0 +1,118 @@
+# Default values for myapp-chart
+
+# Global values
+global:
+  environment: production
+
+# Namespace configuration
+namespace:
+  name: myapp
+  create: true
+  labels:
+    app: myapp
+    project: kubernetes-from-zero
+
+# Backend configuration
+backend:
+  enabled: true
+
+  image:
+    repository: dhyaneshjart/backend
+    tag: "v1.0"
+    pullPolicy: IfNotPresent
+
+  replicas: 2
+
+  # Container configuration
+  container:
+    port: 8000
+
+  # Resource limits
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+  # Environment variables
+  env:
+    APP_ENV: "production"
+    LOG_LEVEL: "info"
+
+  # Service configuration
+  service:
+    type: ClusterIP
+    port: 8000
+
+  # Autoscaling
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 5
+    targetCPUUtilizationPercentage: 70
+    targetMemoryUtilizationPercentage: 80
+
+# Frontend configuration
+frontend:
+  enabled: true
+
+  image:
+    repository: dhyaneshjart/frontend
+    tag: "v1.0"
+    pullPolicy: IfNotPresent
+
+  replicas: 2
+
+  # Container configuration
+  container:
+    port: 8080
+
+  # Resource limits
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 128Mi
+
+  # Service configuration
+  service:
+    type: ClusterIP
+    port: 8080
+
+# Ingress configuration
+ingress:
+  enabled: true
+  className: nginx
+  host: myapp.example.com
+
+  # TLS configuration
+  tls:
+    enabled: true
+    secretName: myapp-tls-cert
+    clusterIssuer: letsencrypt-production
+
+  # Annotations
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "30"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "30"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "30"
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+
+# Pod security
+podSecurityContext:
+  runAsNonRoot: true
+  fsGroup: 1000
+  seccompProfile:
+    type: RuntimeDefault
+
+containerSecurityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop:
+    - ALL

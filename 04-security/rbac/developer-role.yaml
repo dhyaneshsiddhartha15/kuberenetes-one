@@ -1,0 +1,48 @@
+# Developer role - read-only access to most resources
+# Can create/edit pods, services, configmaps in their namespace
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: developer
+  namespace: myapp
+rules:
+# Read-only access to most resources
+- apiGroups: [""]
+  resources: ["configmaps", "endpoints", "persistentvolumeclaims", "pods", "podtemplates", "replicationcontrollers", "services", "limitranges", "resourcequotas", "secrets"]
+  verbs: ["get", "list", "watch"]
+
+# Read access to apps resources
+- apiGroups: ["apps"]
+  resources: ["daemonsets", "deployments", "replicasets", "statefulsets"]
+  verbs: ["get", "list", "watch"]
+
+# Read access to networking resources
+- apiGroups: ["networking.k8s.io"]
+  resources: ["ingresses", "networkpolicies"]
+  verbs: ["get", "list", "watch"]
+
+# Can create and edit pods, services, configmaps
+- apiGroups: [""]
+  resources: ["pods", "services", "configmaps"]
+  verbs: ["create", "update", "patch", "delete"]
+
+# Can create and edit deployments
+- apiGroups: ["apps"]
+  resources: ["deployments"]
+  verbs: ["create", "update", "patch", "delete"]
+
+# Can view pod logs
+- apiGroups: [""]
+  resources: ["pods/log"]
+  verbs: ["get"]
+
+# Can exec into pods
+- apiGroups: [""]
+  resources: ["pods/exec"]
+  verbs: ["create"]
+
+# Can port forward to pods
+- apiGroups: [""]
+  resources: ["pods/portforward"]
+  verbs: ["create"]

@@ -1,0 +1,10 @@
+# Backend configuration - environment variables
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: myapp
+data:
+  APP_ENV: "production"
+  LOG_LEVEL: "info"
+  PYTHONUNBUFFERED: "1"

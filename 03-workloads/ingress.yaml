@@ -1,0 +1,57 @@
+# Ingress for myapp - routes traffic to frontend and backend
+# Single domain with path-based routing
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myapp-ingress
+  namespace: myapp
+  annotations:
+    # Use Let's Encrypt for TLS
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    # ACME challenge type
+    cert-manager.io/acme-challenge-type: http01
+    # Force redirect to HTTPS
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    # Proxy settings
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "30"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "30"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "30"
+    # Buffer size for large responses
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+    # Security headers
+    nginx.ingress.kubernetes.io/frame-allow: "SAMEORIGIN"
+    nginx.ingress.kubernetes.io/content-type-nosniff: "true"
+spec:
+  ingressClassName: nginx
+  # TLS configuration
+  tls:
+  - hosts:
+    - myapp.example.com
+    secretName: myapp-tls-cert
+  # Routing rules
+  rules:
+  # Frontend - root path
+  - host: myapp.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend-service
+            port:
+              number: 8080
+
+  # Backend - API path with rewrite
+  # The rewrite annotation captures the path after /api and passes it to backend
+  - host: myapp.example.com
+    http:
+      paths:
+      - path: /api(/|$)(.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: backend-service
+            port:
+              number: 8000

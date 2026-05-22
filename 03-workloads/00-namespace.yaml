@@ -1,0 +1,11 @@
+# Namespace for the sample application
+# Namespaces provide a way to divide cluster resources between multiple users
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: myapp
+  labels:
+    app: myapp
+    environment: production
+    project: kubernetes-from-zero

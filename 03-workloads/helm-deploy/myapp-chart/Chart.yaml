@@ -1,0 +1,16 @@
+apiVersion: v2
+name: myapp
+description: A Helm chart for deploying the myapp sample application (frontend + backend)
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+keywords:
+  - sample
+  - demo
+  - fullstack
+home: https://github.com/dhyanesh-siddhartha/kubernetes-from-zero
+sources:
+  - https://github.com/dhyanesh-siddhartha/kubernetes-from-zero
+maintainers:
+  - name: Dhyanesh Siddhartha
+    email: dhyanesh@example.com
