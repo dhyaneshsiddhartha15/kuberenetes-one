@@ -1,6 +1,6 @@
 # 04-Security: Harden Your Kubernetes Cluster
 
-> 💬 **Dhyanesh's note:** Security is not an afterthought — it's a foundation. I learned this the hard way when I accidentally exposed a database to the internet. Don't be like me. Secure your cluster from day one.
+> 💬  Security is not an afterthought — it's a foundation. I learned this the hard way when I accidentally exposed a database to the internet. Don't be like me. Secure your cluster from day one.
 
 ---
 
