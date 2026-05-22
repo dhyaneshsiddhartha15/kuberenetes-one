@@ -1,6 +1,6 @@
 # Helm Charts: Deploy Any App with Helm
 
-> 💬 **Dhyanesh's note:** Helm is like apt/yum for Kubernetes. Instead of managing dozens of YAML files, you package everything into a "chart" and deploy with one command. Game changer!
+> 💬 ** Helm is like apt/yum for Kubernetes. Instead of managing dozens of YAML files, you package everything into a "chart" and deploy with one command. Game changer!
 
 ---
 
