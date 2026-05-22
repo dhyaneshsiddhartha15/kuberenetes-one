@@ -1,6 +1,6 @@
 # 03-Workloads: Deploy Applications on Kubernetes
 
-> 💬 **Dhyanesh's note:** This is the fun part! You'll deploy a real application with frontend, backend, TLS certificates, and autoscaling. I'll show you the exact steps to deploy ANY app on this cluster.
+>  This is where ! You'll deploy a real application with frontend, backend, TLS certificates, and autoscaling. I'll show you the exact steps to deploy ANY app on this cluster.
 
 ---
 
